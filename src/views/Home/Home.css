@@ -17,6 +17,9 @@
 }
 
 .title {
+  margin: 0;
+  display: flex;
+  place-items: center;
   padding-bottom: 15px;
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { GiOctopus } from 'react-icons/gi'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../services/UserService'
 import './Home.css'
@@ -19,8 +20,8 @@ function Home () {
   return (
     <section className='home'>
       <aside className='title'>
-        <h1>Squid Game (Statues)</h1>
-        <h4>Placeholder for game logo</h4>
+        <h1>Squid Game #1 (Statues)</h1>
+        <GiOctopus size={75} color='#14549c' />
       </aside>
       <h3>Create New Player</h3>
       <aside>
