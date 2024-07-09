@@ -27,12 +27,13 @@ body {
   display: flex;
   place-items: center;
   min-width: 375px;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 h1 {
   font-size: 2em;
   line-height: 1.1;
+  margin-bottom: 0.5em;
 }
 
 button {
@@ -42,12 +43,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #14549c;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #03074b;
 }
 button:focus,
 button:focus-visible {
