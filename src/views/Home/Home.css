@@ -11,7 +11,7 @@
 
 .logo {
   height: 6em;
-  padding: 1.5em;
+  padding: 1em;
   transition: transform 0.5s;
 }
 
@@ -23,7 +23,6 @@
   margin: 0;
   display: flex;
   place-items: center;
-  padding-bottom: 15px;
 }
 
 .start {
