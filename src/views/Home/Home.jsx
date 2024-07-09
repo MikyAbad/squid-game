@@ -21,7 +21,7 @@ function Home () {
     <section className='home'>
       <aside className='title'>
         <h1>Squid Game #1 (Statues)</h1>
-        <GiOctopus size={75} color='#14549c' />
+        <GiOctopus className='logo' size={75} color='#14549c' />
       </aside>
       <h3>Create New Player</h3>
       <aside>
