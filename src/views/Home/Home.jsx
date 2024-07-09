@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { login } from '../../services'
 import './Home.css'
 
-function Home () {
+export function Home () {
   const [name, setName] = useState('')
   const navigate = useNavigate()
 
@@ -36,5 +36,3 @@ function Home () {
     </section>
   )
 }
-
-export default Home
