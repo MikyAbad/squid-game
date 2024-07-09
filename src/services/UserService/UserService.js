@@ -1,5 +1,6 @@
 const login = (name) => {
   const user = JSON.parse(localStorage.getItem(name)) || { name: name.trim(), score: 0, maxScore: 0 }
+  localStorage.setItem(name, JSON.stringify(user))
   localStorage.setItem('currentUser', JSON.stringify(user))
   return user
 }
