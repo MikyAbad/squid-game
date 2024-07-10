@@ -6,10 +6,17 @@ import { GiOctopus } from 'react-icons/gi'
 import './Game.css'
 
 export function Game () {
-  const [user, setUser] = useState(getCurrentUser())
-  const [light, setLight] = useState('red')
   const navigate = useNavigate()
-  const scoreRef = useRef(user.score)
+  const user = getCurrentUser()
+  const [light, setLight] = useState('red')
+  const [currentUser, setCurrentUser] = useState(user)
+  const scoreRef = useRef(user ? user.score : 0)
+
+  useEffect(() => {
+    if (!currentUser) {
+      navigate('/')
+    }
+  }, [currentUser, navigate])
 
   useEffect(() => {
     startLightCycle(setLight, scoreRef.current)
@@ -17,17 +24,19 @@ export function Game () {
   }, [])
 
   const handleButtonPress = (buttonId) => {
-    const { scoreChange } = handleUserClick(user.score, buttonId)
-    let newScore = user.score + scoreChange
+    const { scoreChange } = handleUserClick(currentUser.score, buttonId)
+    let newScore = currentUser.score + scoreChange
     if (newScore < 0) newScore = 0
-    const newMaxScore = Math.max(user.maxScore, newScore)
-    const updatedUser = { ...user, score: newScore, maxScore: newMaxScore }
-    setUser(updatedUser)
+    const newMaxScore = Math.max(currentUser.maxScore, newScore)
+    const updatedUser = { ...currentUser, score: newScore, maxScore: newMaxScore }
+    setCurrentUser(updatedUser)
     scoreRef.current = newScore
     saveScore(updatedUser)
   }
 
   const handleExit = () => { navigate('/') }
+
+  if (!currentUser) return null
 
   return (
     <main>
