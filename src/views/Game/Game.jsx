@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { getCurrentUser, saveScore, startLightCycle, handleUserClick, stopLightCycle } from '../../services'
 import { FaPlayCircle, FaStopCircle } from 'react-icons/fa'
 import { GiOctopus } from 'react-icons/gi'
+import { ImExit } from 'react-icons/im'
+import { RiFootprintFill } from 'react-icons/ri'
+import { PiFootprintsFill } from 'react-icons/pi'
+import { Button } from '../../components'
 import './Game.css'
 
 export function Game () {
@@ -54,10 +58,10 @@ export function Game () {
           </div>
           <p className='current-score'>Score: {user.score}</p>
           <div className='buttons-container'>
-            <button className='game-button' onClick={() => handleButtonPress('left')}>Left</button>
-            <button className='game-button' onClick={() => handleButtonPress('right')}>Right</button>
+            <Button className='game-button' onClick={() => handleButtonPress('left')} text='Left' Icon={PiFootprintsFill} />
+            <Button className='game-button' onClick={() => handleButtonPress('right')} text='Right' Icon={RiFootprintFill} />
           </div>
-          <button className='exit-button' onClick={handleExit}>Exit</button>
+          <Button className='exit-button' onClick={handleExit} text='Exit' Icon={ImExit} />
         </main>
       </section>
     </main>

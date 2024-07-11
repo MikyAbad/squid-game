@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { GiOctopus } from 'react-icons/gi'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../services'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 import './Home.css'
 
 export function Home () {
