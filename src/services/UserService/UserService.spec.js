@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
-import { login, getCurrentUser, saveScore } from './UserService'
+import { login, getCurrentUser, saveScore, getAllUsers } from './UserService'
 
 const clearLocalStorage = () => { localStorage.clear() }
 
@@ -51,5 +51,36 @@ describe('GIVEN UserService service', () => {
     const currentDummyUser = JSON.parse(localStorage.getItem('currentUser'))
     expect(currentDummyUser.score).toBe(10)
     expect(currentDummyUser.maxScore).toBe(20)
+  })
+
+  it('SHOULD return all users except the current user key', () => {
+    const currentUser = { name: 'user1', maxScore: 100 }
+    const user1 = { name: 'user1', maxScore: 100 }
+    const user2 = { name: 'user2', maxScore: 200 }
+
+    localStorage.setItem('currentUser', JSON.stringify(currentUser))
+    localStorage.setItem('user1', JSON.stringify(user1))
+    localStorage.setItem('user2', JSON.stringify(user2))
+
+    const result = getAllUsers()
+
+    expect(result).toHaveLength(2)
+    expect(result).toEqual(expect.arrayContaining([user1, user2]))
+  })
+
+  it('SHOULD return an empty array if there are no other users', () => {
+    const currentUser = { name: 'user1', maxScore: 100 }
+
+    localStorage.setItem('currentUser', JSON.stringify(currentUser))
+
+    const result = getAllUsers()
+
+    expect(result).toHaveLength(0)
+  })
+
+  it('SHOULD return an empty array if localStorage is empty', () => {
+    const result = getAllUsers()
+
+    expect(result).toHaveLength(0)
   })
 })

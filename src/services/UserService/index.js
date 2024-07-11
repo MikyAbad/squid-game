@@ -1,1 +1,1 @@
-export { login, getCurrentUser, saveScore } from './UserService'
+export { login, getCurrentUser, saveScore, getAllUsers } from './UserService'

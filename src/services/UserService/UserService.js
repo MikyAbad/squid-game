@@ -15,3 +15,17 @@ export const saveScore = (user) => {
   localStorage.setItem(name, JSON.stringify(updatedUser))
   localStorage.setItem('currentUser', JSON.stringify(updatedUser))
 }
+
+export const getAllUsers = () => {
+  const users = []
+
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i)
+    if (key !== 'currentUser') {
+      const user = JSON.parse(localStorage.getItem(key))
+      users.push(user)
+    }
+  }
+
+  return users
+}
