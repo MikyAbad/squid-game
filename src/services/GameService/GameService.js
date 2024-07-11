@@ -1,3 +1,5 @@
+import { vibrate } from '../../utils'
+
 let light = 'red'
 let interval = null
 let lastButton = null
@@ -29,6 +31,7 @@ const calculateGreenLightTiming = (score) => {
 
 export const handleUserClick = (currentScore, buttonId) => {
   if (light === 'red') {
+    vibrate()
     return {
       scoreChange: -currentScore,
       lastButton: null
