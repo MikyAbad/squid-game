@@ -7,8 +7,6 @@ describe('GIVEN GameLogo component', () => {
   it('SHOULD render the game logo correctly', () => {
     render(<GameLogo />)
 
-    console.log(document.querySelector('.logo'))
-
     expect(document.querySelector('.logo')).toBeInTheDocument()
   })
 })
