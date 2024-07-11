@@ -4,6 +4,8 @@ Statues is a fun and interactive game where players must click buttons alternati
 
 The game is built as a PWA using React and leverages various services for handling game logic and user management.
 
+➡️ LIVE version: [Squid Game](https://mikyabad.github.io/squid-game/) ⬅️
+
 ## Table of Contents 📋
 
 - [Features](#features)
