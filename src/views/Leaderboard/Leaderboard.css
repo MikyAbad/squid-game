@@ -1,0 +1,15 @@
+.leaderboard {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #1d1a1a;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}

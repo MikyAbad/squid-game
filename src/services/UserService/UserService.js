@@ -27,5 +27,5 @@ export const getAllUsers = () => {
     }
   }
 
-  return users
+  return users.sort((a, b) => b.maxScore - a.maxScore) || []
 }

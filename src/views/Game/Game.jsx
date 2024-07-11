@@ -6,6 +6,7 @@ import { GiOctopus } from 'react-icons/gi'
 import { ImExit } from 'react-icons/im'
 import { RiFootprintFill } from 'react-icons/ri'
 import { PiFootprintsFill } from 'react-icons/pi'
+import { MdLeaderboard } from 'react-icons/md'
 import { Button } from '../../components'
 import './Game.css'
 
@@ -64,6 +65,7 @@ export function Game () {
           <Button className='exit-button' onClick={handleExit} text='Exit' Icon={ImExit} />
         </main>
       </section>
+      <Button className='leaderboard-button' onClick={() => navigate('/leaderboard')} text='Leaderboard' Icon={MdLeaderboard} />
     </main>
   )
 }

@@ -53,10 +53,14 @@ describe('GIVEN UserService service', () => {
     expect(currentDummyUser.maxScore).toBe(20)
   })
 
-  it('SHOULD return all users except the current user key', () => {
+  it('SHOULD return all users except the current user key sorted by maxScore', () => {
     const currentUser = { name: 'user1', maxScore: 100 }
     const user1 = { name: 'user1', maxScore: 100 }
     const user2 = { name: 'user2', maxScore: 200 }
+    const leaderboardUsers = [
+      { name: 'user2', maxScore: 200 },
+      { name: 'user1', maxScore: 100 }
+    ]
 
     localStorage.setItem('currentUser', JSON.stringify(currentUser))
     localStorage.setItem('user1', JSON.stringify(user1))
@@ -65,7 +69,7 @@ describe('GIVEN UserService service', () => {
     const result = getAllUsers()
 
     expect(result).toHaveLength(2)
-    expect(result).toEqual(expect.arrayContaining([user1, user2]))
+    expect(result).toEqual(expect.arrayContaining(leaderboardUsers))
   })
 
   it('SHOULD return an empty array if there are no other users', () => {

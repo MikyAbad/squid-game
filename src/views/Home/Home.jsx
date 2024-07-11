@@ -3,6 +3,7 @@ import { GiOctopus } from 'react-icons/gi'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../services'
 import { Button } from '../../components'
+import { MdLeaderboard } from 'react-icons/md'
 import './Home.css'
 
 export function Home () {
@@ -32,7 +33,8 @@ export function Home () {
           onChange={(e) => setName(e.target.value.trim())}
           placeholder='Enter your nickname'
         />
-        <Button className='start' onClick={handleStart} text='Start Game' />
+        <Button className='start-button' onClick={handleStart} text='Start Game' />
+        <Button className='leaderboard-button' onClick={() => navigate('/leaderboard')} text='Leaderboard' Icon={MdLeaderboard} />
       </aside>
     </section>
   )
