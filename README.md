@@ -19,7 +19,7 @@ The game is built as a PWA using React and leverages various services for handli
 
 - Dynamic light cycle changing between red and green depending on user score
 - Anxious ticking clock audio incrementing with your score
-- Vibrating device/browser when losing all your points(if supported!)
+- Vibrating device/browser when losing all your points (if supported!)
 - PWA app that you can enjoy offline!
 - User score management and persistence
 - Interactive buttons for gameplay
@@ -93,13 +93,16 @@ This project uses vitest and @testing-library/react for testing. To run the test
 - React DOM
 - React Router DOM
 - React Icons
+- vite-plugin-pwa
 - Vitest (development only)
 - @testing-library/react (development only)
 - @testing-library/jest-dom (development only)
+- @vite-pwa/assets-generator (development only)
+- gh-pages (development only)
 
 ## Additional Notes ✒️
 
-Both audio and vibration maybe are not fully supported by your browser/device. If that's your case, this features won't be available for you 😞
+Maybe both audio and vibration features are not fully supported by your browser/device. If that's your case, these features won't be available for you 😞
 
 ## License 🖇️
 
