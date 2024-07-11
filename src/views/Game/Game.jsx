@@ -15,6 +15,7 @@ export function Game () {
   const [light, setLight] = useState('red')
   const [currentUser, setCurrentUser] = useState(user)
   const scoreRef = useRef(user ? user.score : 0)
+  const audioRef = useRef(new Audio('https://www.fesliyanstudios.com/play-mp3/861'))
 
   useEffect(() => {
     if (!currentUser) {
@@ -27,6 +28,17 @@ export function Game () {
     return () => stopLightCycle()
   }, [])
 
+  useEffect(() => {
+    const audio = audioRef.current
+    audio.loop = true
+    if (light === 'green') {
+      audio.play()
+      audio.playbackRate = 1 + scoreRef.current * 0.1
+    } else {
+      audio.pause()
+    }
+  }, [light])
+
   const handleButtonPress = (buttonId) => {
     const { scoreChange } = handleUserClick(currentUser.score, buttonId)
     let newScore = currentUser.score + scoreChange
@@ -38,7 +50,10 @@ export function Game () {
     saveScore(updatedUser)
   }
 
-  const handleExit = () => { navigate('/') }
+  const handleExit = () => {
+    audioRef.current.pause()
+    navigate('/')
+  }
 
   if (!currentUser) return null
 
