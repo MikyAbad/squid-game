@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { GiOctopus } from 'react-icons/gi'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../services'
-import { Button } from '../../components'
+import { Button, GameLogo } from '../../components'
 import { MdLeaderboard } from 'react-icons/md'
 import './Home.css'
 
@@ -23,7 +22,7 @@ export function Home () {
     <section className='home'>
       <aside className='title'>
         <h1>Squid Game #1 (Statues)</h1>
-        <GiOctopus className='logo' size={75} color='#14549c' />
+        <GameLogo />
       </aside>
       <h3>Create New Player</h3>
       <aside>

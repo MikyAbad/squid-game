@@ -10,16 +10,6 @@
   color: #fff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1em;
-  transition: transform 0.5s;
-}
-
-.logo:active {
-  transform: rotateY(180deg);
-}
-
 .title {
   margin: 0;
   display: flex;

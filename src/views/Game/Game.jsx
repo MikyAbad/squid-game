@@ -2,12 +2,11 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getCurrentUser, saveScore, startLightCycle, handleUserClick, stopLightCycle } from '../../services'
 import { FaPlayCircle, FaStopCircle } from 'react-icons/fa'
-import { GiOctopus } from 'react-icons/gi'
 import { ImExit } from 'react-icons/im'
 import { RiFootprintFill } from 'react-icons/ri'
 import { PiFootprintsFill } from 'react-icons/pi'
 import { MdLeaderboard } from 'react-icons/md'
-import { Button } from '../../components'
+import { Button, GameLogo } from '../../components'
 import './Game.css'
 
 export function Game () {
@@ -45,9 +44,7 @@ export function Game () {
 
   return (
     <main>
-      <section className='logo-header'>
-        <GiOctopus className='logo' size={75} color='#14549c' />
-      </section>
+      <GameLogo />
       <section className='game-container'>
         <header className='game-header'>
           <h2>Player: {user.name}</h2>
