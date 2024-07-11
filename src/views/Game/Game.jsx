@@ -50,9 +50,9 @@ export function Game () {
     saveScore(updatedUser)
   }
 
-  const handleExit = () => {
+  const handleExitButtons = (path) => {
     audioRef.current.pause()
-    navigate('/')
+    navigate(path)
   }
 
   if (!currentUser) return null
@@ -74,10 +74,10 @@ export function Game () {
             <Button className='game-button' onClick={() => handleButtonPress('left')} text='Left' Icon={PiFootprintsFill} />
             <Button className='game-button' onClick={() => handleButtonPress('right')} text='Right' Icon={RiFootprintFill} />
           </div>
-          <Button className='exit-button' onClick={handleExit} text='Exit' Icon={ImExit} />
+          <Button className='exit-button' onClick={() => handleExitButtons('/')} text='Exit' Icon={ImExit} />
         </main>
       </section>
-      <Button className='leaderboard-button' onClick={() => navigate('/leaderboard')} text='Leaderboard' Icon={MdLeaderboard} />
+      <Button className='leaderboard-button' onClick={() => handleExitButtons('/leaderboard')} text='Leaderboard' Icon={MdLeaderboard} />
     </main>
   )
 }
