@@ -64,7 +64,7 @@ This project uses vitest and @testing-library/react for testing. To run the test
 
 ## Project Structure 🏗️
 
-This project uses vitest and @testing-library/react for testing. To run the tests, use:
+This is the basic files and folders structure tree of the project made in React with Vite:
 
 ```php
   squid-game/
