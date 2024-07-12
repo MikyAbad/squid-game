@@ -1,4 +1,5 @@
 import { vibrate } from '../../utils'
+import { MAX_DURATION, RED_LIGHT_DURATION, PERCENTAGE_CONST, MIN_DURATION_RANGE, RANDOM_DURATION } from '../../constants'
 
 let light = 'red'
 let interval = null
@@ -19,13 +20,13 @@ export const startLightCycle = (callback, score) => switchLight(callback, score)
 const switchLight = (callback, score) => {
   light = light === 'red' ? 'green' : 'red'
   callback(light)
-  const duration = light === 'red' ? 3000 : calculateGreenLightTiming(score)
+  const duration = light === 'red' ? RED_LIGHT_DURATION : calculateGreenLightTiming(score)
   interval = setTimeout(() => switchLight(callback, score), duration)
 }
 
 const calculateGreenLightTiming = (score) => {
-  const baseDuration = Math.max(10000 - score * 100, 2000)
-  const randomTiming = Math.floor(Math.random() * 3000) - 1500
+  const baseDuration = Math.max(MAX_DURATION - score * PERCENTAGE_CONST, MIN_DURATION_RANGE)
+  const randomTiming = Math.floor(Math.random() * RED_LIGHT_DURATION) - RANDOM_DURATION
   return baseDuration + randomTiming
 }
 

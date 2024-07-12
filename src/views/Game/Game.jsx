@@ -7,6 +7,7 @@ import { RiFootprintFill } from 'react-icons/ri'
 import { PiFootprintsFill } from 'react-icons/pi'
 import { MdLeaderboard } from 'react-icons/md'
 import { Button, GameLogo } from '../../components'
+import { AUDIO_URL, INCREMENT_RATE } from '../../constants'
 import './Game.css'
 
 export function Game () {
@@ -15,7 +16,7 @@ export function Game () {
   const [light, setLight] = useState('red')
   const [currentUser, setCurrentUser] = useState(user)
   const scoreRef = useRef(user ? user.score : 0)
-  const audioRef = useRef(new Audio('https://www.fesliyanstudios.com/play-mp3/861'))
+  const audioRef = useRef(new Audio(AUDIO_URL))
 
   useEffect(() => {
     if (!currentUser) {
@@ -33,7 +34,7 @@ export function Game () {
     audio.loop = true
     if (light === 'green') {
       audio.play()
-      audio.playbackRate = 1 + scoreRef.current * 0.1
+      audio.playbackRate = 1 + scoreRef.current * INCREMENT_RATE
     } else {
       audio.pause()
     }

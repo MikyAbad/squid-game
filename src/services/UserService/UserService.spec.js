@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { login, getCurrentUser, saveScore, getAllUsers } from './UserService'
+import { CURRENT_USER } from '../../constants'
 
 const clearLocalStorage = () => { localStorage.clear() }
 
@@ -21,7 +22,7 @@ describe('GIVEN UserService service', () => {
   it('SHOULD return the current user from localStorage using getCurrentUser', () => {
     const dummyName = 'dummyUser'
     const dummyUser = { name: dummyName, score: 10, maxScore: 20 }
-    localStorage.setItem('currentUser', JSON.stringify(dummyUser))
+    localStorage.setItem(CURRENT_USER, JSON.stringify(dummyUser))
 
     const currentDummyUser = getCurrentUser()
     expect(currentDummyUser).toEqual(dummyUser)
@@ -48,7 +49,7 @@ describe('GIVEN UserService service', () => {
 
     saveScore(dummyUser)
 
-    const currentDummyUser = JSON.parse(localStorage.getItem('currentUser'))
+    const currentDummyUser = JSON.parse(localStorage.getItem(CURRENT_USER))
     expect(currentDummyUser.score).toBe(10)
     expect(currentDummyUser.maxScore).toBe(20)
   })
@@ -62,7 +63,7 @@ describe('GIVEN UserService service', () => {
       { name: 'user1', maxScore: 100 }
     ]
 
-    localStorage.setItem('currentUser', JSON.stringify(currentUser))
+    localStorage.setItem(CURRENT_USER, JSON.stringify(currentUser))
     localStorage.setItem('user1', JSON.stringify(user1))
     localStorage.setItem('user2', JSON.stringify(user2))
 
@@ -75,7 +76,7 @@ describe('GIVEN UserService service', () => {
   it('SHOULD return an empty array if there are no other users', () => {
     const currentUser = { name: 'user1', maxScore: 100 }
 
-    localStorage.setItem('currentUser', JSON.stringify(currentUser))
+    localStorage.setItem(CURRENT_USER, JSON.stringify(currentUser))
 
     const result = getAllUsers()
 
