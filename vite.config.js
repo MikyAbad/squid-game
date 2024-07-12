@@ -12,7 +12,7 @@ export default defineConfig({
         name: 'Squid Game (Statues)',
         short_name: 'Squid Game',
         description: 'Dynamic mobile game simulating statues popular game',
-        theme_color: '#ffffff',
+        theme_color: '#000000',
         icons: [
           {
             src: 'pwa-192x192.png',
