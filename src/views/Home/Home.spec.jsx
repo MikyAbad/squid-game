@@ -42,7 +42,7 @@ describe('GIVEN Home.js view component', () => {
 
     fireEvent.click(screen.getByText('Start Game'))
 
-    expect(alertMock).toHaveBeenCalledWith('Please enter a valid name')
+    expect(alertMock).toHaveBeenCalledWith('Please enter a valid name (only letters and numbers are allowed)')
     alertMock.mockRestore()
   })
 
@@ -54,11 +54,11 @@ describe('GIVEN Home.js view component', () => {
     )
 
     fireEvent.change(screen.getByPlaceholderText('Enter your nickname'), {
-      target: { value: 'Test User' }
+      target: { value: 'Test1' }
     })
     fireEvent.click(screen.getByText('Start Game'))
 
-    expect(login).toHaveBeenCalledWith('Test User')
+    expect(login).toHaveBeenCalledWith('Test1')
     expect(mockNavigate).toHaveBeenCalled()
     expect(mockNavigate).toHaveBeenCalledWith('/game')
   })

@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { vibrate } from './vibrate'
+import { VIBRATION_PATTERN } from '../../constants'
 
 describe('GIVEN vibrate util function', () => {
   let originalNavigator
@@ -20,7 +21,7 @@ describe('GIVEN vibrate util function', () => {
 
     vibrate()
 
-    expect(vibrateMock).toHaveBeenCalledWith([500, 200, 500])
+    expect(vibrateMock).toHaveBeenCalledWith(VIBRATION_PATTERN)
   })
 
   it('SHOULD log message if vibration is not supported', () => {

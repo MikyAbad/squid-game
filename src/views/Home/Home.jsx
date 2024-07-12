@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { login } from '../../services'
 import { Button, GameLogo } from '../../components'
 import { MdLeaderboard } from 'react-icons/md'
+import { REGEX_VALIDATION } from '../../constants'
 import './Home.css'
 
 export function Home () {
@@ -10,11 +11,14 @@ export function Home () {
   const navigate = useNavigate()
 
   const handleStart = () => {
-    if (name.trim()) {
-      login(name.trim())
+    const trimmedName = name.trim()
+    const isValidName = REGEX_VALIDATION.test(trimmedName)
+
+    if (trimmedName && isValidName) {
+      login(trimmedName)
       navigate('/game')
     } else {
-      alert('Please enter a valid name')
+      alert('Please enter a valid name (only letters and numbers are allowed)')
     }
   }
 

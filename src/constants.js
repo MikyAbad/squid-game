@@ -13,3 +13,7 @@ export const RANDOM_DURATION = 1500
 export const AUDIO_URL = 'https://www.fesliyanstudios.com/play-mp3/861'
 
 export const INCREMENT_RATE = 0.1
+
+export const REGEX_VALIDATION = /^[a-zA-Z0-9]+$/
+
+export const VIBRATION_PATTERN = [500, 200, 500]
