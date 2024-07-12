@@ -27,6 +27,7 @@ The game is built as a PWA using React and leverages various services for handli
 - Interactive buttons for gameplay
 - User authentication and score saving
 - Responsive design with icons
+- Click/touch the squid to get a fun animation!! 🐙
 
 ## Installation 🔧
 
